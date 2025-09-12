@@ -11,6 +11,9 @@ public class ButtonDefinition : MonoBehaviour
     public bool _selected = false;
     private Button _button;
     private Image _image;
+    public AudioClip _swapToSFX;
+    public AudioClip _confirmSFX;
+    public float _confirmTime;
     private bool _disableControls = false;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,10 @@ public class ButtonDefinition : MonoBehaviour
     public void SwappedTo()
     {
         _selected = true;
+        if(_swapToSFX != null)
+        {
+            AudioSource.PlayClipAtPoint(_swapToSFX, Vector3.zero);
+        }
         _image.color = _selectedTint;
     }
 
@@ -38,13 +45,23 @@ public class ButtonDefinition : MonoBehaviour
         _selected = false;
         _image.color = _unselectedTint;
     }
-    public void ClickButton()
+    public IEnumerator ClickButton()
     {
         if (!_disableControls)
         {
             _disableControls = true;
+            if(_confirmSFX != null)
+            {
+                AudioSource.PlayClipAtPoint(_confirmSFX, Vector3.zero);
+            }
+            yield return new WaitForSeconds(_confirmTime);
             _button.onClick.Invoke();
             _disableControls = false;
         }
+    }
+
+    public bool GetDisableControls()
+    {
+        return _disableControls;
     }
 }
