@@ -12,4 +12,5 @@ Lucas O'Leary
 - I believe that this design pattern is indeed beneficial for this purpose, as those functions can be used by multiple things, whether it's enemies or players. This leads to cleaner, easier to follow code, and a centralized script to keep track of important values within the game.
 
 # Important Note
-- As I really don't like wasting space on my laptop's drive (a blank Unity project is a couple GBs), I use this repository for any 2D projects that need to be done. For this assignment, the files can be found under /Scripts/AdventureIsland/. All other folders are from previous tutorials or assignments.
+- As I really don't like wasting space on my laptop's drive (a blank Unity project is a couple GBs), I use this repository for any 2D projects that need to be done. For this assignment, the scene is "AdventureIsland" in the scenes folder, while the scripts can be found under /Scripts/AdventureIsland/. All other folders are from previous tutorials or assignments.
+- The controls are Left/Right arrow to move, and space to jump
